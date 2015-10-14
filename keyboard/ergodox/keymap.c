@@ -32,7 +32,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "keymap.h"
 #include "ergodox.h"
 
-
 /* ErgoDox keymap definition macro */
 #define KEYMAP(                                                 \
                                                                 \
@@ -86,44 +85,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #elif defined(KEYMAP_CUB)
 #include "keymap_cub.h"
 #else
-
 static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP(  // layer 0 : default
         // left hand
-        EQL, 1,   2,   3,   4,   5,   ESC,
-        BSLS,Q,   W,   E,   R,   T,   FN2,
-        TAB, A,   S,   D,   F,   G,
-        LSFT,Z,   X,   C,   V,   B,   FN1,
-        LGUI,GRV, BSLS,LEFT,RGHT,
-                                      LCTL,LALT,
-                                           HOME,
-                                 BSPC,DEL, END,
+         ESC,   1,   2,   3,   4,   5,   6,
+         TAB,   Q,   W,   F,   P,   G,   6,
+        LCTL,   A,   R,   S,   T,   D,
+        LSFT,   Z,   X,   C,   V,   B, FN2,
+        LGUI, FN2,LCTL,LGUI,LALT,
+                                       FN2,  NO,
+                                             NO,
+                                 BSPC, FN1, FN2,
         // right hand
-             FN3, 6,   7,   8,   9,   0,   MINS,
-             LBRC,Y,   U,   I,   O,   P,   RBRC,
-                  H,   J,   K,   L,   SCLN,QUOT,
-             FN1, N,   M,   COMM,DOT, SLSH,RSFT,
-                       LEFT,DOWN,UP,  RGHT,RGUI,
-        RALT,RCTL,
-        PGUP,
-        PGDN,ENT, SPC
+               6,    7,   8,   9,   0,MINS, EQL,
+              GRV,   J,   L,   U,   Y,SCLN,BSLS,
+                     H,   N,   E,   I,   O,QUOT,
+              FN2,   K,   M,COMM, DOT,SLSH,RSFT,
+                       RALT,RGUI,RCTL,  NO,RCTL,
+          NO,  NO,
+          NO,
+         FN2,ENT, SPC
     ),
 
     KEYMAP(  // layer 1 : function and symbol keys
         // left hand
-        TRNS,F1,  F2,  F3,  F4,  F5,  F11,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN4,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+        TRNS,F1,  F2,  F3,  F4,   F5,  F11,
+        TRNS,TRNS,HOME,  UP,PGUP,TRNS,  NO,
+        TRNS,TRNS,LEFT,DOWN,RGHT,TRNS,
+        TRNS,TRNS, END, DEL,PGDN,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
                                       TRNS,TRNS,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
              F12, F6,  F7,  F8,  F9,  F10, TRNS,
-             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-                  TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,TRNS, FN3, FN4, FN8, FN9,TRNS,
+                  TRNS, FN5, FN6,TRNS,TRNS,TRNS,
+             TRNS,TRNS,LBRC,RBRC,TRNS,TRNS,TRNS,
                        TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
@@ -137,18 +135,18 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
         TRNS,TRNS,TRNS,TRNS,TRNS,
-                                      TRNS,TRNS,
+                                      TRNS, FN8,
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
              FN4, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-                  TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-             TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,
-                       TRNS,TRNS,TRNS,TRNS,TRNS,
+             TRNS,TRNS,   7,   8,   9,TRNS,TRNS,
+                  TRNS,   4,   5,   6,TRNS,TRNS,
+             TRNS,TRNS,   1,   2,   3,TRNS,TRNS,
+                          0, DOT,TRNS,TRNS,TRNS,
         TRNS,TRNS,
         TRNS,
-        TRNS,TRNS,TRNS
+        TRNS,TRNS,   0
     ),
 
     KEYMAP(  // layer 3: numpad
@@ -162,7 +160,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            TRNS,
                                  TRNS,TRNS,TRNS,
         // right hand
-             TRNS,NLCK,PSLS,PAST,PAST,PMNS,BSPC,
+              FN0,NLCK,PSLS,PAST,PAST,PMNS,BSPC,
              TRNS,NO,  P7,  P8,  P9,  PMNS,BSPC,
                   NO,  P4,  P5,  P6,  PPLS,PENT,
              TRNS,NO,  P1,  P2,  P3,  PPLS,PENT,
@@ -176,7 +174,7 @@ static const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* id for user defined functions */
 enum function_id {
-    TEENSY_KEY,
+    TEENSY_KEY
 };
 
 /*
@@ -184,10 +182,15 @@ enum function_id {
  */
 static const uint16_t PROGMEM fn_actions[] = {
     ACTION_FUNCTION(TEENSY_KEY),                    // FN0 - Teensy key
-    ACTION_LAYER_MOMENTARY(1),                      // FN1 - switch to Layer1
-    ACTION_LAYER_SET(2, ON_PRESS),                  // FN2 - set Layer2
-    ACTION_LAYER_TOGGLE(3),                         // FN3 - toggle Layer3 aka Numpad layer
-    ACTION_LAYER_SET(0, ON_PRESS),                  // FN4 - set Layer0
+    ACTION_LAYER_MOMENTARY(1),
+    ACTION_LAYER_MOMENTARY(2),                  // FN2 - set Layer2
+    ACTION_MODS_KEY(MOD_LSFT, KC_LBRC), //FN3
+    ACTION_MODS_KEY(MOD_LSFT, KC_RBRC), //FN4
+    ACTION_MODS_KEY(MOD_LSFT, KC_9), //FN5
+    ACTION_MODS_KEY(MOD_LSFT, KC_0), //FN6
+    ACTION_MODS_KEY(MOD_LSFT, KC_MINS), //FN7
+    ACTION_LAYER_MOMENTARY(3), //FN8
+    ACTION_LAYER_MOMENTARY(5) //FN9
 };
 
 void action_function(keyrecord_t *event, uint8_t id, uint8_t opt)
@@ -235,4 +238,3 @@ action_t keymap_fn_to_action(uint8_t keycode)
     return action;
 }
 #endif
-
